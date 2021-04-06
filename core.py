@@ -11,20 +11,26 @@ def getBestMove(board: chess.Board) -> chess.Move:
     if checkMateMove != None:
         return checkMateMove
 
-    opponentColor = not board.turn
+    opponent_color = not board.turn
 
-    min_opponent_score = None
+    opponent_initial_score = getBoardScore(board, opponent_color)
+    min_opponent_score = opponent_initial_score
+
     best_move = None
 
     for candidate_move in list(board.legal_moves):
         board.push(candidate_move)
-        candidate_move_score = getBoardScore(board, opponentColor)
-        if min_opponent_score == None or candidate_move_score < min_opponent_score:
+        candidate_move_score = getBoardScore(board, opponent_color)
+        if candidate_move_score < min_opponent_score and candidate_move_score < opponent_initial_score:
             min_opponent_score = candidate_move_score
             best_move = candidate_move
         board.pop()
+    
+    if best_move == None:
+        return random.choice(list(board.legal_moves))
+    else:
+        return best_move
 
-    return best_move
 
 def getBoardScore(board: chess.Board, color: chess.Color) -> int:
 
