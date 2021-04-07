@@ -10,4 +10,4 @@ jobs:
       - name: Create binary
         run: pyinstaller babibot.py
       - name: Restart lichess-bot
-        run: systemctl restart lichess-bot
+        run: systemctl --user restart lichess-bot
