@@ -1,0 +1,13 @@
+name: Deploy to Lichess
+
+on: push
+
+jobs:
+  echo-input:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create binary
+        run: pyinstaller babibot.py
+      - name: Restart lichess-bot
+        run: systemctl restart lichess-bot
