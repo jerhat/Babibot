@@ -9,5 +9,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create binary
         run: pyinstaller babibot.py
-      - name: Restart lichess-bot
-        run: systemctl --user restart lichess-bot
