@@ -22,7 +22,7 @@ def command_received(msg: str):
         send_response("id name Babibot")
         send_response("id author Jerhat & Babib")
         send_response("option name Debug Log File type string default")
-        send_response("option name Contempt type spin default 24 min 100 max 100")
+        send_response("option name Contempt type spin default 24 min -100 max 100")
         send_response("option name Analysis Contempt type combo default Both var Off var White var Black var Both")
         send_response("option name Threads type spin default 1 min 1 max 512")
         send_response("option name Hash type spin default 16 min 1 max 131072")
