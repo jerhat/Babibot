@@ -129,6 +129,12 @@ def get_board_score(board: chess.Board, color: chess.Color) -> int:
     for _ in rooks:
         total +=50
 
+    if (board.has_kingside_castling_rights(color)):
+        total += 1
+
+    if (board.has_queenside_castling_rights(color)):
+        total += 1
+
     return total
 
 
