@@ -22,6 +22,9 @@ def get_best_move(board: chess.Board) -> chess.Move:
         if board.is_checkmate():
             return my_candidate_move
 
+        if board.is_stalemate():
+            current_score = -500
+
         is_my_candidate_move_attacked = __is_attacked(board, my_candidate_move.to_square)
 
         candidate_min_score = sys.maxsize
